@@ -16,4 +16,3 @@ jobs:
           heroku_app_name: "salah-for-bots"
           heroku_email: ${{ secrets.EMAIL }}
           procfile: "web: python telegram_bot.py"
-          healthcheck: "https://salah-for-bots.herokuapp.com/api/user/healthy/"  
