@@ -11,6 +11,8 @@ def send_hello(message):
         reply = """
         Hello Admin :) 
     if you want to see your tasks type /bots
+    if you want to delete tasks type /deletAllTasks
+
         """
     else:
         reply = """
@@ -33,6 +35,14 @@ def list_tasks(message):
         for task in data['data']:
             msg += f" ID : {task['id']} \n Description : {task['description']} \n\n"
         bot.send_message(message.chat.id, msg)
+
+
+@bot.message_handler(commands=['deleteAllTasks'])
+def list_tasks(message):
+    if message.chat.id == 5607752795:
+        data = json.loads(open('data.json','r').read())
+        data['data'] = []
+        bot.send_message(message.chat.id, "All tasks are deleted")
 
 
 @bot.message_handler(commands=['play'])
