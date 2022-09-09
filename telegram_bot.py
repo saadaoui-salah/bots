@@ -11,7 +11,7 @@ def send_hello(message):
         reply = """
         Hello Admin :) 
     if you want to see your tasks type /bots
-    if you want to delete tasks type /deletAllTasks
+    if you want to delete tasks type /deleteAllTasks
 
         """
     else:
