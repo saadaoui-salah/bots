@@ -15,4 +15,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "salah-for-bots"
           heroku_email: ${{ secrets.EMAIL }}
-          procfile: "web: python telegram_bot.py"
+          procfile: "worker: python telegram_bot.py"
