@@ -42,6 +42,8 @@ def list_tasks(message):
     if message.chat.id == 5607752795:
         data = json.loads(open('data.json','r').read())
         data['data'] = []
+        with open('data.json','w') as f : 
+            f.write(json.dumps(data))
         bot.send_message(message.chat.id, "All tasks are deleted")
 
 
