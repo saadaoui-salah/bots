@@ -34,7 +34,10 @@ def list_tasks(message):
         msg  = ""
         for task in data['data']:
             msg += f" ID : {task['id']} \n Description : {task['description']} \n\n"
-        bot.send_message(message.chat.id, msg)
+        if msg == "":
+            bot.send_message(message.chat.id, "No tasks found")
+        else:
+            bot.send_message(message.chat.id, msg)
 
 
 @bot.message_handler(commands=['deleteAllTasks'])
@@ -44,7 +47,7 @@ def list_tasks(message):
         data['data'] = []
         with open('data.json','w') as f : 
             f.write(json.dumps(data))
-            f.save()
+            f.close()
         bot.send_message(message.chat.id, "All tasks are deleted")
 
 
