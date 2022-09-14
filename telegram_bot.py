@@ -44,6 +44,7 @@ def list_tasks(message):
         data['data'] = []
         with open('data.json','w') as f : 
             f.write(json.dumps(data))
+            f.save()
         bot.send_message(message.chat.id, "All tasks are deleted")
 
 
